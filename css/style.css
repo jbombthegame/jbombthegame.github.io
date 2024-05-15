@@ -470,6 +470,21 @@ ol {
 	transition: all, 0.2s;
 }
 
+.hero__text_2 h2 {
+	color: #b30c03;
+	font-size: 42px;
+	font-family: "Oswald", sans-serif;
+	font-weight: 700;
+	line-height: 52px;
+}
+.hero__text_2 h3 {
+	color: #ffffff;
+	font-size: 32px;
+	font-family: "Oswald", sans-serif;
+	font-weight: 700;
+	line-height: 52px;
+}
+
 .hero__text h2 {
 	color: #b30c03;
 	font-size: 42px;
