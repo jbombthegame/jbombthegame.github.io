@@ -24,16 +24,21 @@
     <!-- Add custom JavaScript -->
     <script>
         function setDownloadLink() {
-            var downloadLink = document.getElementById('download-link');
+            var downloadLinks = document.getElementsByClassName('download-link');
             var platform = navigator.platform.toLowerCase();
-
+            var hrefValue;
+    
             if (platform.includes('win')) {
-                downloadLink.href = 'https://raw.githubusercontent.com/simonediberardino/jbomb_setups/main/jbomb_installer.exe';
+                hrefValue = 'https://raw.githubusercontent.com/simonediberardino/jbomb_setups/main/jbomb_installer.exe';
             } else if (platform.includes('mac') || platform.includes('linux') || platform.includes('unix')) {
-                downloadLink.href = 'https://raw.githubusercontent.com/simonediberardino/jbomb_setups/main/installer.sh';
+                hrefValue = 'https://raw.githubusercontent.com/simonediberardino/jbomb_setups/main/installer.sh';
             } else {
                 // Default to Windows installer if the platform is not recognized
-                downloadLink.href = 'https://raw.githubusercontent.com/simonediberardino/jbomb_setups/main/jbomb_installer.exe';
+                hrefValue = 'https://raw.githubusercontent.com/simonediberardino/jbomb_setups/main/jbomb_installer.exe';
+            }
+    
+            for (var i = 0; i < downloadLinks.length; i++) {
+                downloadLinks[i].href = hrefValue;
             }
         }
 
@@ -87,7 +92,7 @@
                                 <div class="label"><h2>JBomb The Game</h2></div>
 
                                 <div class="label">JBomb is a 2D videogame where the objective is to strategically place bombs to eliminate opponents and obstacles. JBomb offers dynamic gameplay, challenging puzzles and different game modes, including multiplayer.</div>
-                                <a id="download-link" href="#"><span>Download now</span> <i class="fa fa-angle-right"></i></a>
+                                <a class="download-link" href="#"><span>Download now</span> <i class="fa fa-angle-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -101,7 +106,7 @@
                                 <div class="label"><h2>JBomb The Game</h2></div>
 
                                 <div class="label">JBomb is a 2D videogame where the objective is to strategically place bombs to eliminate opponents and obstacles. JBomb offers dynamic gameplay, challenging puzzles and different game modes, including multiplayer.</div>
-                                <a id="download-link" href="#"><span>Download now</span> <i class="fa fa-angle-right"></i></a>
+                                <a class="download-link" href="#"><span>Download now</span> <i class="fa fa-angle-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -115,7 +120,7 @@
                                 <div class="label"><h2>JBomb The Game</h2></div>
 
                                 <div class="label">JBomb is a 2D videogame where the objective is to strategically place bombs to eliminate opponents and obstacles. JBomb offers dynamic gameplay, challenging puzzles and different game modes, including multiplayer.</div>
-                                <a id="download-link" href="#"><span>Download now</span> <i class="fa fa-angle-right"></i></a>
+                                <a class="download-link" href="#"><span>Download now</span> <i class="fa fa-angle-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -129,7 +134,7 @@
                                 <div class="label"><h2>JBomb The Game</h2></div>
 
                                 <div class="label">JBomb is a 2D videogame where the objective is to strategically place bombs to eliminate opponents and obstacles. JBomb offers dynamic gameplay, challenging puzzles and different game modes, including multiplayer.</div>
-                                <a id="download-link" href="#"><span>Download now</span> <i class="fa fa-angle-right"></i></a>
+                                <a class="download-link" href="#"><span>Download now</span> <i class="fa fa-angle-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -143,7 +148,7 @@
                                 <div class="label"><h2>JBomb The Game</h2></div>
 
                                 <div class="label">JBomb is a 2D videogame where the objective is to strategically place bombs to eliminate opponents and obstacles. JBomb offers dynamic gameplay, challenging puzzles and different game modes, including multiplayer.</div>
-                                <a id="download-link" href="#"><span>Download now</span> <i class="fa fa-angle-right"></i></a>
+                                <a class="download-link" href="#"><span>Download now</span> <i class="fa fa-angle-right"></i></a>
                             </div>
                         </div>
                     </div>
