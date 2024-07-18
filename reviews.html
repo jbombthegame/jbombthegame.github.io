@@ -65,28 +65,31 @@
             </div>
 
             <div class="col-lg-6">
-                <!-- Review Form Begin -->
+               <!-- Review Form -->
                 <div class="hero__text_2">
                     <h3 class="hero__text_2">Submit a Review<br></h3>
-                    <div class="label" style="color: #ffffff;">
-                        <form id="reviewForm">
-                            <div class="form-group">
-                                <label for="author" style="color: #ffffff;">Author</label>
-                                <input type="text" class="form-control" id="author" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="content" style="color: #ffffff;">Content</label>
-                                <textarea class="form-control" id="content" rows="3" required></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="rating" style="color: #ffffff;">Rating</label>
-                                <input type="number" class="form-control" id="rating" min="1" max="5" required>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </form>
-                    </div>
+                    <form id="review-form">
+                        <div class="form-group">
+                            <label for="author">Name</label>
+                            <input type="text" id="author" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="content">Review</label>
+                            <textarea id="content" class="form-control" rows="4" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="rating">Rating</label>
+                            <input type="number" id="rating" class="form-control" min="1" max="5" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
                 </div>
-                <!-- Review Form End -->
+
+                <!-- Display Reviews -->
+                <div class="hero__text_2">
+                    <h3 class="hero__text_2">Reviews<br></h3>
+                    <div id="reviews"></div>
+                </div>
             </div>
         </div>
     </div>
