@@ -95,6 +95,39 @@ textarea:focus {
 	outline: none;
 }
 
+/* Reviews list styles */
+#reviews-list {
+    column-count: 2;
+    column-gap: 20px;
+}
+
+.card {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    color: #555;
+}
+
+@media (max-width: 768px) {
+    #reviews-list {
+        column-count: 1;
+    }
+}
+
 a:hover,
 a:focus {
 	text-decoration: none;
