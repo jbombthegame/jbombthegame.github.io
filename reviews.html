@@ -132,11 +132,11 @@
                 // Send GET request to insert review
                 $.get(url, function(data, status) {
                     console.log('Review submitted successfully');
-                    alert('Review submitted successfully');
-                    $('#review-form')[0].reset();
+                    // Redirect to review confirmation page
+                    window.location.href = './review_sent.html';
                 }).fail(function(xhr, textStatus, errorThrown) {
-                    console.error('Error submitting review:', errorThrown);
-                    alert('Error submitting review');
+                    // Redirect to review confirmation page
+                    window.location.href = './review_sent.html';
                 });
             });
         });
