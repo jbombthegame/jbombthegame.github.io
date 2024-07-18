@@ -129,42 +129,24 @@
 
     <!-- Custom JS to handle form submission and fetch reviews -->
     <script>
-        $(document).ready(function() {
-            // Fetch and display reviews
-            function fetchReviews() {
-                $.get('/reviews', function(data) {
-                    let reviewsHtml = '';
-                    data.forEach(function(review) {
-                        reviewsHtml += `
-                            <div class="review">
-                                <h4>${review.author}</h4>
-                                <p>${review.content}</p>
-                                <p>Rating: ${review.rating}</p>
-                                <p><small>${review.created_at}</small></p>
-                                <hr>
-                            </div>
-                        `;
-                    });
-                    $('#reviews').html(reviewsHtml);
-                });
-            }
-
-            fetchReviews();
-
+         $(document).ready(function() {
             $('#review-form').on('submit', function(event) {
                 event.preventDefault();
+                
                 const author = $('#author').val();
                 const content = $('#content').val();
                 const rating = $('#rating').val();
-            
-                console.log('Submitting review:', { author, content, rating });
-            
-                $.post('/reviews', { author, content, rating }, function() {
+
+                // Construct the URL with parameters
+                const url = `/reviews/author=${encodeURIComponent(author)}/content=${encodeURIComponent(content)}/rating=${rating}`;
+
+                // Send GET request to insert review
+                $.get(url, function(data, status) {
                     console.log('Review submitted successfully');
-                    fetchReviews();
+                    alert('Review submitted successfully');
                     $('#review-form')[0].reset();
-                }).fail(function(jqXHR, textStatus, errorThrown) {
-                    console.error('Error submitting review:', textStatus, errorThrown);
+                }).fail(function(xhr, textStatus, errorThrown) {
+                    console.error('Error submitting review:', errorThrown);
                     alert('Error submitting review');
                 });
             });
