@@ -57,7 +57,7 @@
     <!-- Header End -->
 
     <div class="container">     
-        <div class="row" style="padding: 64px">
+        <div class="row" style="padding-top: 64px; padding-left: 64px; padding-right: 64px">
             <div class="col-lg-3">
                 <div class="footer__logo">
                     <a href="./index.html"><img src="img/logo.png" alt=""></a>
@@ -88,7 +88,7 @@
         <div class="container mt-5">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
-                    <h3 class="text-center mb-4" style="color: white;">All Reviews</h3>
+                    <h3 class="hero__text_2">All reviews<br></h3>
                     <div id="reviews-list" class="card-columns"></div>
                 </div>
             </div>
@@ -158,7 +158,7 @@
                 data.forEach(function(review) {
                     const reviewItem = `<div class="card mb-4 shadow-sm">
                                             <div class="card-body">
-                                                <h5 class="card-title">><strong>Author:</strong> ${review.author}</h5>
+                                                <h5 class="card-title"><strong>Author:</strong> ${review.author}</h5>
                                                 <p class="card-text">${review.content}</p>
                                                 <p class="card-text"><strong>Rating:</strong> ${review.rating}</p>
                                             </div>
