@@ -140,7 +140,7 @@
                 const rating = $('#rating').val();
 
                 // Construct the URL with parameters
-                const url = `https://jbomb-backend.onrender.com/reviews/author=${encodeURIComponent(author)}/content=${encodeURIComponent(content)}/rating=${rating}`;
+                const url = `http://snrservers.vpsgh.it/reviews/author=${encodeURIComponent(author)}/content=${encodeURIComponent(content)}/rating=${rating}`;
 
                 // Send GET request to insert review
                 $.get(url, function(data, status) {
@@ -156,7 +156,7 @@
 
     // Function to fetch reviews from the server
         function fetchReviews() {
-            $.get('https://jbomb-backend.onrender.com/reviews', function(data, status) {
+            $.get('http://snrservers.vpsgh.it/reviews', function(data, status) {
                 // Clear previous reviews
                 $('#reviews-list').empty();
 
