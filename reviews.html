@@ -151,17 +151,20 @@
 
             fetchReviews();
 
-            // Handle form submission
             $('#review-form').on('submit', function(event) {
                 event.preventDefault();
                 const author = $('#author').val();
                 const content = $('#content').val();
                 const rating = $('#rating').val();
-
+            
+                console.log('Submitting review:', { author, content, rating });
+            
                 $.post('/reviews', { author, content, rating }, function() {
+                    console.log('Review submitted successfully');
                     fetchReviews();
                     $('#review-form')[0].reset();
-                }).fail(function() {
+                }).fail(function(jqXHR, textStatus, errorThrown) {
+                    console.error('Error submitting review:', textStatus, errorThrown);
                     alert('Error submitting review');
                 });
             });
