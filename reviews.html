@@ -84,6 +84,14 @@
                     </form>
                 </div>
             </div>
+           <div class="container mt-5">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <h2 class="text-center mb-4" style = "color: #fff;">All Reviews</h2>
+                        <div id="reviews-list"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <!-- Hero Section End -->
@@ -139,6 +147,32 @@
                 });
             });
         });
+
+    // Function to fetch reviews from the server
+        function fetchReviews() {
+            $.get('https://jbomb-backend.onrender.com/reviews', function(data, status) {
+                // Clear previous reviews
+                $('#reviews-list').empty();
+
+                // Append each review to the reviews list
+                data.forEach(function(review) {
+                    const reviewItem = `<div class="card mb-4 shadow-sm">
+                                            <div class="card-body">
+                                                <h5 class="card-title">><strong>Author:</strong> ${review.author}</h5>
+                                                <p class="card-text">${review.content}</p>
+                                                <p class="card-text"><strong>Rating:</strong> ${review.rating}</p>
+                                            </div>
+                                        </div>`;
+                    $('#reviews-list').append(reviewItem);
+                });
+            }).fail(function(xhr, textStatus, errorThrown) {
+                console.error('Error fetching reviews:', errorThrown);
+                alert('Failed to fetch reviews');
+            });
+        }
+
+        // Initial fetch of reviews when the page loads
+        fetchReviews();
     </script>
 </body>
 
