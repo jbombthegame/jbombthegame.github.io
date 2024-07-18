@@ -67,6 +67,7 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
 
+ 
     <!-- Custom JS to fetch and display reviews -->
     <script>
         $(document).ready(function() {
@@ -78,7 +79,7 @@
 
                     // Append each review to the reviews list
                     data.forEach(function(review) {
-                        const reviewItem = `<div class="card mb-3">
+                        const reviewItem = `<div class="card mb-4 shadow-sm">
                                                 <div class="card-body">
                                                     <h5 class="card-title">${review.author}</h5>
                                                     <p class="card-text">${review.content}</p>
