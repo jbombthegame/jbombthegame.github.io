@@ -114,7 +114,7 @@
     </footer>
     <!-- Footer Section End -->
 
-    <!-- Js Plugins -->
+  <!-- Js Plugins -->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/player.js"></script>
@@ -124,36 +124,44 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
 
-    <!-- Review Form Submission Script -->
+    <!-- Custom JS to handle form submission and fetch reviews -->
     <script>
-        document.getElementById('reviewForm').addEventListener('submit', async function (event) {
-            event.preventDefault();
-
-            const author = document.getElementById('author').value;
-            const content = document.getElementById('content').value;
-            const rating = document.getElementById('rating').value;
-
-            const review = { author, content, rating };
-
-            try {
-                const response = await fetch('https://jbomb-backend.onrender.com/reviews', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(review)
+        $(document).ready(function() {
+            // Fetch and display reviews
+            function fetchReviews() {
+                $.get('/reviews', function(data) {
+                    let reviewsHtml = '';
+                    data.forEach(function(review) {
+                        reviewsHtml += `
+                            <div class="review">
+                                <h4>${review.author}</h4>
+                                <p>${review.content}</p>
+                                <p>Rating: ${review.rating}</p>
+                                <p><small>${review.created_at}</small></p>
+                                <hr>
+                            </div>
+                        `;
+                    });
+                    $('#reviews').html(reviewsHtml);
                 });
-
-                if (response.ok) {
-                    alert('Review submitted successfully!');
-                    document.getElementById('reviewForm').reset();
-                } else {
-                    alert('Failed to submit review');
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                alert('Error submitting review');
             }
+
+            fetchReviews();
+
+            // Handle form submission
+            $('#review-form').on('submit', function(event) {
+                event.preventDefault();
+                const author = $('#author').val();
+                const content = $('#content').val();
+                const rating = $('#rating').val();
+
+                $.post('/reviews', { author, content, rating }, function() {
+                    fetchReviews();
+                    $('#review-form')[0].reset();
+                }).fail(function() {
+                    alert('Error submitting review');
+                });
+            });
         });
     </script>
 </body>
